@@ -28,7 +28,7 @@ function layout(u: Unit) {
 function F({ x, y, w, h, label, round }: { x: number; y: number; w: number; h: number; label?: string; round?: boolean }) {
   return (
     <g className="furn">
-      {round ? <ellipse cx={(x + w / 2) * S} cy={(y + h / 2) * S} rx={(w / 2) * S} ry={(h / 2) * S} /> : <rect x={x * S} y={y * S} width={w * S} height={h * S} rx={4} />}
+      {round ? <ellipse cx={(x + w / 2) * S} cy={(y + h / 2) * S} rx={(w / 2) * S} ry={(h / 2) * S} /> : <rect x={x * S} y={y * S} width={w * S} height={h * S} />}
       {label && <text x={(x + w / 2) * S} y={(y + h / 2) * S + 4} textAnchor="middle">{label}</text>}
     </g>
   );
@@ -39,8 +39,8 @@ function Chairs({ x, y, w, h, n }: { x: number; y: number; w: number; h: number;
   const out = [];
   for (let i = 0; i < per; i++) {
     const cx = x + ((i + 0.5) * w) / per - 0.22;
-    out.push(<rect key={`t${i}`} className="chair" x={cx * S} y={(y - 0.55) * S} width={0.44 * S} height={0.44 * S} rx={3} />);
-    if (i < n - per) out.push(<rect key={`b${i}`} className="chair" x={cx * S} y={(y + h + 0.11) * S} width={0.44 * S} height={0.44 * S} rx={3} />);
+    out.push(<rect key={`t${i}`} className="chair" x={cx * S} y={(y - 0.55) * S} width={0.44 * S} height={0.44 * S} />);
+    if (i < n - per) out.push(<rect key={`b${i}`} className="chair" x={cx * S} y={(y + h + 0.11) * S} width={0.44 * S} height={0.44 * S} />);
   }
   return <>{out}</>;
 }
@@ -104,7 +104,7 @@ export function FloorPlan({ unit, variant }: { unit: Unit; variant: number }) {
       </g>
       <g transform={`translate(${width * S - 10} ${depth * S + 34})`}>
         <g transform={`rotate(${270 - unit.azimuth})`}>
-          <path d="M0 -12 L5 2 L-5 2 Z" fill="#c0392b" />
+          <path d="M0 -12 L5 2 L-5 2 Z" fill="#5f5f5f" />
           <text y={-15} textAnchor="middle" fontSize="11">N</text>
         </g>
       </g>

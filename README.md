@@ -12,7 +12,7 @@ npm run dev      # http://localhost:5173
 npm run build    # statisk bygg i dist/
 ```
 
-Laget for desktop (1440 px). Mobil kommer senere.
+Laget for desktop (1440 px). Mobil kommer senere. Stilen er bevisst en enkel wireframe i gråtoner (lav detaljgrad), ikke et ferdig design.
 
 ## Flyt (storyboardet)
 

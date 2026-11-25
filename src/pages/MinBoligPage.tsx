@@ -26,7 +26,7 @@ export function MinBoligPage() {
         <h1>Min bolig · {PROJECT.name}</h1>
         {(s.salesOpen || bought) && (
           <div className="notice">
-            <strong>⚠ Endring {CHANGE_NOTICE.date}: {CHANGE_NOTICE.title}</strong>
+            <strong>Endring {CHANGE_NOTICE.date}: {CHANGE_NOTICE.title}</strong>
             {showWhy ? <p>{CHANGE_NOTICE.body}</p> : <button className="link" onClick={() => setShowWhy(true)}>Hvorfor?</button>}
           </div>
         )}
@@ -50,10 +50,10 @@ export function MinBoligPage() {
               <p>{bought.rooms} rom · {bought.bra} m² · {bought.floor}. etg · reservert</p>
               <h3>Dokumenter</h3>
               <ul className="docs">
-                <li><span>📝 Kjøpekontrakt</span><button className="btn primary small">Signer med BankID</button></li>
-                <li><span>📄 Leveransebeskrivelse</span><button className="link">Åpne</button></li>
-                <li><span>📄 Tilvalg og pris</span><button className="link">Åpne</button></li>
-                <li><span>🧾 Kvittering depositum</span><button className="link">Åpne</button></li>
+                <li><span>Kjøpekontrakt</span><button className="btn primary small">Signer med BankID</button></li>
+                <li><span>Leveransebeskrivelse</span><button className="link">Åpne</button></li>
+                <li><span>Tilvalg og pris</span><button className="link">Åpne</button></li>
+                <li><span>Kvittering depositum</span><button className="link">Åpne</button></li>
               </ul>
             </>
           ) : (

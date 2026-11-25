@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FACILITIES, PROJECT, UNITS, mill, nok } from '../data';
+import { FACILITIES, PROJECT, UNITS, mill } from '../data';
 import { EarthView3D, MapView2D } from '../components/SiteViews';
 import { SunSlider } from '../components/SunSlider';
 import { go } from '../store';
@@ -27,11 +27,6 @@ export function ProjectPage() {
             <button className="btn primary big" onClick={() => go('/bygg')}>Velg bolig</button>
             <span className="muted">Salgsstart {PROJECT.salesStart}. Meld interesse nå, så er du klar.</span>
           </div>
-        </div>
-        <div className="usp">
-          <div><span>☀</span><strong>Se sola på din balkong</strong><p>Til alle tider av døgnet, for hver leilighet.</p></div>
-          <div><span>💰</span><strong>Kjøp digitalt, spar meglergebyr</strong><p>Alt du trenger for å bestemme deg, uten å ringe megler. Du sparer {nok(PROJECT.meglerFeeSaved)}.</p></div>
-          <div><span>⇄</span><strong>Sammenlign favorittene</strong><p>Side om side, med forskjellene markert.</p></div>
         </div>
       </section>
 

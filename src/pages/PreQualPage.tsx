@@ -31,7 +31,7 @@ export function PreQualPage() {
         <h3>2. Lånebevis</h3>
         <label className="upload">
           <input type="file" accept=".pdf,.png,.jpg" onChange={(e) => setFile(e.target.files?.[0]?.name ?? null)} />
-          {file ? <span>📄 {file} ✓</span> : <span>Last opp finansieringsbevis fra banken (PDF eller bilde)</span>}
+          {file ? <span>{file} ✓</span> : <span>Last opp finansieringsbevis fra banken (PDF eller bilde)</span>}
         </label>
         <button className="link small" onClick={() => setFile('finansieringsbevis-eksempel.pdf')}>Bruk eksempelfil</button>
         <p className="muted small">Prototype: ingenting sendes noe sted, og filen forlater ikke nettleseren. Bare filnavnet lagres.</p>

@@ -15,10 +15,7 @@ export function Header() {
   return (
     <header className="header">
       <div className="header-top">
-        <a className="logo" href="#/">
-          <span className="logo-mark">◧</span> Boligvelgeren
-          <span className="logo-project"> · {PROJECT.name}</span>
-        </a>
+        <a className="logo" href="#/">{PROJECT.name}</a>
         <nav className="nav">
           <a href="#/bygg" className={page === 'bygg' ? 'active' : ''}>Velg bolig</a>
           <a href="#/sammenlign" className={page === 'sammenlign' ? 'active' : ''}>
@@ -46,7 +43,7 @@ export function Header() {
       </ol>
       {s.salesOpen && !s.order && page !== 'kjop' && page !== 'kvittering' && (
         <div className="sales-banner">
-          🔔 Salget har åpnet.{' '}
+          Salget har åpnet.{' '}
           {s.preQual?.approved
             ? s.interests.length > 0
               ? <>Du er forhåndsgodkjent og kan kjøpe boligene du har meldt interesse for. <button className="link" onClick={() => go('/min-bolig')}>Gå til Min bolig →</button></>

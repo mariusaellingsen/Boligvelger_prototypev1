@@ -54,7 +54,7 @@ export function ComparePage() {
             </select>
           )}
         </div>
-        {v && <div className="verdict">💡 {v}</div>}
+        {v && <div className="verdict">{v}</div>}
         <table className="compare">
           <thead>
             <tr>

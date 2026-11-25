@@ -48,7 +48,7 @@ export function UnitPage({ id }: { id: string }) {
                 <SunStrip unit={u} />
                 <p>
                   <strong>{num(sunHours(u))} soltimer</strong> på balkongen 10. mai
-                  {win ? <> , fra kl {fmtHour(win.from)} til {fmtHour(win.to)}.</> : '.'}
+                  {win ? <>, fra kl {fmtHour(win.from)} til {fmtHour(win.to)}.</> : '.'}
                 </p>
               </div>
             </>
@@ -67,7 +67,6 @@ export function UnitPage({ id }: { id: string }) {
             <dt>Pris per m²</dt><dd>{nok(Math.round(u.price / u.bra))}</dd>
           </dl>
           <div className="saving">
-            <span>💰</span>
             <div><strong>Spart meglergebyr {nok(PROJECT.meglerFeeSaved)}</strong><p>Du kjøper direkte og digitalt, uten megler.</p></div>
           </div>
           <div className="sun-mini">☀ <strong>{num(sunHours(u))} t</strong> sol på balkongen 10. mai · <button className="link" onClick={() => setTab('sol')}>Se sola</button></div>

@@ -53,7 +53,7 @@ export function EarthView3D({ hour }: { hour: number }) {
   const now = sunPos(hour);
   const up = now.altitude > 0;
   const shadowDx = up ? Math.max(-260, Math.min(260, (x(now.azimuth) - W / 2) * -0.35 / Math.max(0.25, now.altitude / 20))) : 0;
-  const sky = up ? (now.altitude < 8 ? ['#bebebe', '#e6e6e6'] : ['#8e8e8e', '#e1e1e1']) : ['#252525', '#4c4c4c'];
+  const sky = up ? (now.altitude < 8 ? ['#f6b26b', '#fde3c0'] : ['#5b9bd5', '#cfe6f7']) : ['#1c2541', '#3a506b'];
   return (
     <div className="siteview">
       <svg viewBox={`0 0 ${W} ${H}`} className="earth3d">
@@ -64,24 +64,24 @@ export function EarthView3D({ hour }: { hour: number }) {
           </linearGradient>
         </defs>
         <rect width={W} height={H} fill="url(#sky)" />
-        <path d={path.join(' ')} fill="none" stroke="#333" strokeWidth="2.5" strokeDasharray="6 5" opacity=".9" />
+        <path d={path.join(' ')} fill="none" stroke="#ffd34d" strokeWidth="2.5" strokeDasharray="6 5" opacity=".9" />
         {[6, 12, 18, 21].map((h) => {
           const p = sunPos(h);
           return p.altitude > -1 ? <text key={h} x={x(p.azimuth)} y={y(p.altitude) - 10} textAnchor="middle" className="sky-label">kl {h}</text> : null;
         })}
-        {up && <circle cx={x(now.azimuth)} cy={y(now.altitude)} r="16" fill="#fff" stroke="#333" strokeWidth="4" />}
-        <polygon points={`0,${horizon} ${W},${horizon} ${W},${H} 0,${H}`} fill={up ? '#b2b2b2' : '#3c3c3c'} />
-        <polygon points={`40,${horizon + 30} 220,${horizon + 18} 260,${horizon + 60} 60,${horizon + 80}`} fill={up ? '#a3a3a3' : '#373737'} />
+        {up && <circle cx={x(now.azimuth)} cy={y(now.altitude)} r="16" fill="#fff3a6" stroke="#ffcf33" strokeWidth="4" />}
+        <polygon points={`0,${horizon} ${W},${horizon} ${W},${H} 0,${H}`} fill={up ? '#9cc58a' : '#2e4636'} />
+        <polygon points={`40,${horizon + 30} 220,${horizon + 18} 260,${horizon + 60} 60,${horizon + 80}`} fill={up ? '#8bb879' : '#284030'} />
         {[[90, 200, 70, 40], [560, 205, 90, 35], [660, 214, 70, 22], [140, 212, 50, 26]].map(([bx, by, bw, bh], i) => (
-          <rect key={i} x={bx} y={by} width={bw} height={bh} fill={up ? '#d2d2d2' : '#4e4e4e'} />
+          <rect key={i} x={bx} y={by} width={bw} height={bh} fill={up ? '#cfd3d8' : '#45505c'} />
         ))}
         {up && <polygon points={`330,300 470,300 ${470 + shadowDx},${300 + 24} ${330 + shadowDx},${300 + 24}`} fill="rgba(0,0,0,.22)" />}
-        <polygon points="330,150 470,150 500,135 360,135" fill={up ? '#e3e3e3' : '#616161'} />
-        <polygon points="470,150 500,135 500,285 470,300" fill={up ? '#b9b9b9' : '#434343'} />
-        <rect x="330" y="150" width="140" height="150" fill={up ? '#efefef' : '#545454'} />
+        <polygon points="330,150 470,150 500,135 360,135" fill={up ? '#e7e3dc' : '#59636d'} />
+        <polygon points="470,150 500,135 500,285 470,300" fill={up ? '#bfb9ae' : '#3d454e'} />
+        <rect x="330" y="150" width="140" height="150" fill={up ? '#f3efe8' : '#4c5661'} />
         {[0, 1, 2, 3, 4].map((r) =>
           [0, 1, 2, 3, 4].map((c) => (
-            <rect key={`${r}${c}`} x={338 + c * 26.5} y={158 + r * 28} width="18" height="18" fill={up ? '#9d9d9d' : '#d4d4d4'} opacity=".9" />
+            <rect key={`${r}${c}`} x={338 + c * 26.5} y={158 + r * 28} width="18" height="18" fill={up ? '#7fa6c4' : '#f0d58a'} opacity=".9" />
           )),
         )}
         <text x="400" y="128" textAnchor="middle" className="sky-label strong">{PROJECT.name}</text>

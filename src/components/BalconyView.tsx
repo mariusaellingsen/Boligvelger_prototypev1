@@ -19,7 +19,7 @@ export function BalconyView({ unit, hour }: { unit: Unit; hour: number }) {
   const sx = W / 2 + (diff / 70) * (W / 2); // sett utover fra balkongen: lavere azimut (mot sør) til venstre
   const sy = 210 - p.altitude * 4.2;
   const day = p.altitude > 0;
-  const sky = !day ? ['#252525', '#4c4c4c'] : p.altitude < 8 ? ['#b4b4b4', '#e6e6e6'] : ['#8e8e8e', '#e4e4e4'];
+  const sky = !day ? ['#1c2541', '#3a506b'] : p.altitude < 8 ? ['#f3a65f', '#fde3c0'] : ['#5b9bd5', '#d4e9f8'];
   const lit = state === 'sol';
   const viewLow = unit.floor <= 2;
   return (
@@ -32,18 +32,18 @@ export function BalconyView({ unit, hour }: { unit: Unit; hour: number }) {
           </linearGradient>
         </defs>
         <rect width={W} height={H} fill="url(#bsky)" />
-        {day && Math.abs(diff) < 90 && <circle cx={sx} cy={sy} r="18" fill="#fff" stroke="#333" strokeWidth="5" />}
+        {day && Math.abs(diff) < 90 && <circle cx={sx} cy={sy} r="18" fill="#fff3a6" stroke="#ffcf33" strokeWidth="5" />}
         {/* Utsikt: lavere etasjer ser mer av nabobygg */}
-        <polygon points={`0,${viewLow ? 150 : 205} 110,${viewLow ? 140 : 200} 160,${viewLow ? 160 : 210} 260,${viewLow ? 150 : 205} 340,${viewLow ? 170 : 215} 480,${viewLow ? 145 : 200} 640,${viewLow ? 155 : 208} 640,240 0,240`} fill={day ? '#9f9f9f' : '#323232'} />
-        {viewLow && <rect x="360" y="110" width="170" height="130" fill={day ? '#cbcbcb' : '#434343'} />}
-        {viewLow && [0, 1, 2].map((r) => [0, 1, 2, 3].map((c) => <rect key={`${r}${c}`} x={372 + c * 40} y={124 + r * 36} width="22" height="20" fill={day ? '#a8a8a8' : '#cecece'} />))}
-        <rect y="240" width={W} height="100" fill={lit ? '#dadada' : '#c6c6c6'} />
-        {lit && <polygon points={`120,340 ${300 + diff * 1.5},240 ${520 + diff * 1.5},240 560,340`} fill="rgba(255,255,255,.7)" stroke="#888" strokeDasharray="4 3" />}
-        <rect x="0" y="232" width={W} height="10" fill="#6e6e6e" />
-        {[...Array(17)].map((_, i) => <rect key={i} x={10 + i * 38} y="242" width="4" height="70" fill="#6e6e6e" />)}
-        <rect x="0" y="306" width={W} height="8" fill="#6e6e6e" />
-        <rect x="40" y="275" width="90" height="40" rx="6" fill="#828282" />
-        <rect x="500" y="268" width="70" height="50" rx="6" fill="#828282" />
+        <polygon points={`0,${viewLow ? 150 : 205} 110,${viewLow ? 140 : 200} 160,${viewLow ? 160 : 210} 260,${viewLow ? 150 : 205} 340,${viewLow ? 170 : 215} 480,${viewLow ? 145 : 200} 640,${viewLow ? 155 : 208} 640,240 0,240`} fill={day ? '#8fae84' : '#263a2e'} />
+        {viewLow && <rect x="360" y="110" width="170" height="130" fill={day ? '#c9ccd1' : '#3d454e'} />}
+        {viewLow && [0, 1, 2].map((r) => [0, 1, 2, 3].map((c) => <rect key={`${r}${c}`} x={372 + c * 40} y={124 + r * 36} width="22" height="20" fill={day ? '#8fb0c9' : '#e8cf86'} />))}
+        <rect y="240" width={W} height="100" fill={lit ? '#e9d9b8' : '#cfc6b5'} />
+        {lit && <polygon points={`120,340 ${300 + diff * 1.5},240 ${520 + diff * 1.5},240 560,340`} fill="rgba(255,236,160,.55)" />}
+        <rect x="0" y="232" width={W} height="10" fill="#6d6f73" />
+        {[...Array(17)].map((_, i) => <rect key={i} x={10 + i * 38} y="242" width="4" height="70" fill="#6d6f73" />)}
+        <rect x="0" y="306" width={W} height="8" fill="#6d6f73" />
+        <rect x="40" y="275" width="90" height="40" rx="6" fill="#a47b52" />
+        <rect x="500" y="268" width="70" height="50" rx="6" fill="#a47b52" />
       </svg>
       <div className={`sun-status ${state}`}>
         <strong>{MSG[state]}</strong>

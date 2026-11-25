@@ -82,11 +82,11 @@ main { max-width: 1360px; margin: 0 auto; padding: 24px 32px 48px; }
 .siteview svg { width: 100%; height: auto; display: block; border-radius: 2px; }
 .map2d { aspect-ratio: 16 / 9; }
 .map-label { font-size: 2.6px; fill: var(--ink); } .map-label.strong { font-weight: 700; fill: var(--green-dark); font-size: 3px; } .map-label.muted { fill: var(--muted); }
-.sky-label { font-size: 13px; fill: #444; paint-order: stroke; stroke: #fff; stroke-width: 3px; } .sky-label.strong { font-weight: 700; font-size: 15px; }
+.sky-label { font-size: 13px; fill: #fff; paint-order: stroke; stroke: rgba(0,0,0,.3); stroke-width: 3px; } .sky-label.strong { font-weight: 700; font-size: 15px; }
 .split { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; align-items: start; }
 .facility-list { list-style: none; padding: 0; margin: 0; } .facility-list li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--line); }
 .sun-slider { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; margin-top: 14px; }
-.sun-slider input { accent-color: var(--sun); }
+.sun-slider input { accent-color: #f5b82e; }
 .sun-slider .presets { grid-column: 1 / -1; display: flex; gap: 6px; }
 
 /* Building page */
@@ -129,10 +129,10 @@ main { max-width: 1360px; margin: 0 auto; padding: 24px 32px 48px; }
 .furnish { display: flex; gap: 14px; align-items: center; justify-content: center; margin-top: 10px; } .furnish .icon-btn { color: var(--ink); }
 .balcony-view svg { width: 100%; display: block; border-radius: 2px; }
 .sun-status { display: flex; justify-content: space-between; gap: 12px; padding: 10px 14px; border-radius: 2px; margin-top: 10px; background: #eef1f3; font-size: 14px; }
-.sun-status.sol { background: #fff; border: 1px solid #555; } .sun-status span { color: var(--muted); }
+.sun-status.sol { background: #fff3cf; } .sun-status span { color: var(--muted); }
 .sun-summary { margin-top: 16px; }
 .sun-strip { display: flex; gap: 2px; flex-wrap: wrap; position: relative; padding-bottom: 20px; }
-.sun-strip .cell { flex: 1; height: 22px; background: #e6e6e6; } .sun-strip .cell.sol { background: #555; } .sun-strip .cell.natt { background: repeating-linear-gradient(45deg,#fff 0 3px,#bbb 3px 4px); } .sun-strip .cell.skygge-nabo { background: #aaa; }
+.sun-strip .cell { flex: 1; height: 22px; background: #e6e6e6; } .sun-strip .cell.sol { background: #f5b82e; } .sun-strip .cell.natt { background: #3a506b; } .sun-strip .cell.skygge-nabo { background: #c4c9a8; }
 .sun-strip-axis { position: absolute; bottom: 0; left: 0; right: 0; display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); }
 .summary .price-big { font-size: 30px; font-weight: 700; margin: 0; }
 .costs { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; margin: 16px 0; font-size: 14px; }
@@ -190,3 +190,4 @@ select { padding: 8px 10px; border-radius: 2px; border: 1px solid var(--line); f
 .rank { background: #fff; color: #111; border: 2px solid #111; }
 .rank-dot { fill: #111; }
 .usp { display: none; }
+/* Solmodellen beholder farger (sol, himmel, lys) */

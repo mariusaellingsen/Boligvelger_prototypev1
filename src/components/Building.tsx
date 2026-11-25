@@ -22,8 +22,8 @@ export function BuildingFacade({ matches, top3 = [], selected, onSelect }: Props
           <line x1="0" y1="0" x2="0" y2="8" stroke="#bbbbbb" strokeWidth="2" />
         </pattern>
       </defs>
-      <polygon points={`${X0 - 14},${Y0 - 4} ${width / 2 + 25},${6} ${width - 6},${Y0 - 4}`} fill="#e3e3e3" />
-      <rect x={X0 - 14} y={Y0 - 4} width={width - X0 + 8} height={height - Y0 - 22} fill="#f3f3f3" stroke="#bbbbbb" />
+      <polygon points={`${X0 - 14},${Y0 - 4} ${width / 2 + 25},${6} ${width - 6},${Y0 - 4}`} fill="#fff" stroke="#222" strokeWidth={1} />
+      <rect x={X0 - 14} y={Y0 - 4} width={width - X0 + 8} height={height - Y0 - 22} fill="#fff" stroke="#222" />
       {[5, 4, 3, 2, 1].map((floor, row) => (
         <text key={floor} x={X0 - 22} y={Y0 + row * (H + GAP) + H / 2 + 5} textAnchor="end" className="floor-label">
           {floor}. etg
@@ -54,7 +54,7 @@ export function BuildingFacade({ matches, top3 = [], selected, onSelect }: Props
           </g>
         );
       })}
-      <rect x={X0 - 14} y={height - 26} width={width - X0 + 8} height={8} fill="#999999" />
+      <rect x={X0 - 14} y={height - 26} width={width - X0 + 8} height={8} fill="#fff" stroke="#222" />
     </svg>
   );
 }

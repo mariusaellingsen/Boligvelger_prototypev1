@@ -1,41 +1,16 @@
-import { FACILITIES, PROJECT } from '../data';
+import { PROJECT } from '../data';
 import { fmtHour, sunPos } from '../sun';
 
-const ICON: Record<string, string> = { 'T-bane': 'T', Skole: 'S', Barnehage: 'B', Butikk: 'K', Park: 'P', Trening: 'F' };
 
-/** 2D: kart ovenfra (Google Maps-stil) med fasiliteter i nærområdet. */
+/** 2D: plassholder for kartet (low-fi). Fasilitetene står i listen ved siden av. */
 export function MapView2D() {
   return (
-    <div className="siteview">
-      <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" className="map2d">
-        <rect width="100" height="100" fill="#eeeeee" />
-        <rect x="4" y="34" width="26" height="30" rx="2" fill="#dadada" />
-        <path d="M0 14 L100 18" stroke="#ffffff" strokeWidth="3.2" />
-        <path d="M0 14 L100 18" stroke="#d5d5d5" strokeWidth="1.4" />
-        <path d="M60 0 L56 100" stroke="#ffffff" strokeWidth="2.6" />
-        <path d="M0 84 L100 80" stroke="#ffffff" strokeWidth="2.2" />
-        <path d="M30 18 L32 84" stroke="#ffffff" strokeWidth="1.6" />
-        <path d="M74 18 L100 40" stroke="#989898" strokeWidth="1" strokeDasharray="2 1.2" />
-        {[[38, 24, 12, 8], [64, 52, 14, 9], [40, 66, 10, 10], [80, 64, 12, 8], [12, 72, 12, 7], [70, 30, 10, 12]].map(([x, y, w, h], i) => (
-          <rect key={i} x={x} y={y} width={w} height={h} fill="#dbdbdb" stroke="#c7c7c7" strokeWidth=".3" />
-        ))}
-        <rect x="40" y="40" width="14" height="16" fill="#595959" stroke="#3d3d3d" strokeWidth=".5" />
-        <text x="47" y="62" textAnchor="middle" className="map-label strong">{PROJECT.name}</text>
-        <circle cx="47" cy="48" r="20" fill="none" stroke="#595959" strokeWidth=".3" strokeDasharray="1 1" />
-        {FACILITIES.map((f) => (
-          <g key={f.name}>
-            <circle cx={f.x} cy={f.y} r="3.4" fill="#ffffff" stroke="#595959" strokeWidth=".5" />
-            <text x={f.x} y={f.y + 1.3} textAnchor="middle" fontSize="3.6">{ICON[f.type]}</text>
-            <text x={f.x} y={f.y + 7} textAnchor="middle" className="map-label">{f.name}</text>
-            <text x={f.x} y={f.y + 10.2} textAnchor="middle" className="map-label muted">{f.minutes} min gange</text>
-          </g>
-        ))}
-        <g transform="translate(92 8)">
-          <circle r="4" fill="#ffffff" stroke="#999999" strokeWidth=".3" />
-          <path d="M0 -3 L1.2 0 L-1.2 0 Z" fill="#5f5f5f" />
-          <text y="-4.8" textAnchor="middle" fontSize="2.6">N</text>
-        </g>
+    <div className="placeholder" role="img" aria-label="Plassholder for 2D-kart">
+      <svg viewBox="0 0 100 56" preserveAspectRatio="none">
+        <line x1="0" y1="0" x2="100" y2="56" stroke="#222" strokeWidth=".2" />
+        <line x1="100" y1="0" x2="0" y2="56" stroke="#222" strokeWidth=".2" />
       </svg>
+      <span>[2D-kart ovenfra: bygget og fasiliteter i nærområdet]</span>
     </div>
   );
 }
